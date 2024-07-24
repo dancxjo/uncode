@@ -67,8 +67,6 @@ const cli = new Command()
                     error?: string,
                 } = await uncode(ollama, model, signature, explanation, input, examples, verbose);
 
-                console.log(result);
-
                 const isErrored = 'error' in result;
                 const hasOutput = 'output' in result;
 

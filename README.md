@@ -63,10 +63,16 @@ function reverseWords(s: string): string {
     return s.split(" ").reverse().join(" ");
 }
 ```
-#### Warning!
+
+Automagically generate tests for a hypothetical function
+
+```bash
+./uncode -d examples/reverse.json | ./uncode -rom "codellama:13b" examples/tests.json
+```
+
+### Warning
 
 Do not trust any code this produces and *don't* use it in production yet!
-
 
 ### Verbose Mode
 
