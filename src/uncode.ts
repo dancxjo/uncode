@@ -1,4 +1,4 @@
-import { Ollama } from 'ollama';
+import { Ollama } from 'npm:ollama';
 
 const textEncoder = new TextEncoder();
 

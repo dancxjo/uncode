@@ -1,4 +1,4 @@
-import { Ollama } from 'ollama';
+import { Ollama } from 'npm:ollama';
 import { uncode } from './uncode.ts';
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.4/command/mod.ts";
 import { printHighlight } from "https://deno.land/x/speed_highlight_js@v1.2.6/dist/terminal.js";
