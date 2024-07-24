@@ -29,12 +29,11 @@ const cli = new Command()
     .option("-r, --raw", "Do not attempt to parse the input as JSON")
     .action(async ({ model, url, verbose = false, declaration = false, raw = false }, jsonFileName) => {
         try {
+            const decoder = new TextDecoder();
             const path = Deno.realPathSync(jsonFileName);
-            const module = await import(path, {
-                with: { type: "json" },
-            });
-
-            const uncodedFunction = module.default;
+            const data = Deno.readFileSync(path);
+            const jsonContent = decoder.decode(data);
+            const uncodedFunction = JSON.parse(jsonContent);
             const { signature, explanation, examples } = uncodedFunction;
 
             if (verbose || declaration) {
@@ -48,7 +47,6 @@ const cli = new Command()
             const ollama = await initLlama(model, url);
 
             let parametersString = '';
-            const decoder = new TextDecoder();
 
             let receiving = true;
 
