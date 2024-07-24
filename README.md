@@ -2,6 +2,10 @@
 
 Uncode is a command-line interface (CLI) tool that leverages a large language model (LLM) to simulate the results of an unwritten function. The function details are specified in a JSON file that includes the signature, explanation, and examples. This tool uses the `Ollama` library for interfacing with the LLM and the `Cliffy` library for creating the CLI. You'll need to be running [Ollama](https://ollama.com/).
 
+## Warning: Experimental
+
+This is completely experimental and provided as-is. You should *definitely* not use this for anything important yet!!!!
+
 ## Features
 
 - Language agnostic (presumably; I haven't tested that yet)
@@ -44,6 +48,25 @@ To use the `uncode` CLI to simulate this function, run:
 ```bash
 echo '[2,2]' | ./uncode examples/add.json 
 ```
+
+Use the following to use the [Code Functi.on](examples/code.json) to write the source code for another of the examples, the [Reverse Function](examples/reverse.json)
+
+
+```bash
+cat examples/reverse.json | ./uncode examples/code.json
+```
+
+returns
+
+```ts
+function reverseWords(s: string): string {
+    return s.split(" ").reverse().join(" ");
+}
+```
+#### Warning!
+
+Do not trust any code this produces and *don't* use it in production yet!
+
 
 ### Verbose Mode
 
