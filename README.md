@@ -49,11 +49,11 @@ To use the `uncode` CLI to simulate this function, run:
 echo '[2,2]' | ./uncode examples/add.json 
 ```
 
-Use the following to use the [Code Functi.on](examples/code.json) to write the source code for another of the examples, the [Reverse Function](examples/reverse.json)
+Use the following to use the [Code Function](examples/code.json) to write the source code for another of the examples, the [Reverse Function](examples/reverse.json)
 
 
 ```bash
-cat examples/reverse.json | ./uncode examples/code.json
+./uncode -d examples/reverse.json | ./uncode -r examples/code.json
 ```
 
 returns
