@@ -64,7 +64,7 @@ function reverseWords(s: string): string {
 }
 ```
 
-Automagically generate tests for a hypothetical function
+Automagically generate tests for a hypothetical function.
 
 ```bash
 ./uncode -d examples/reverse.json | ./uncode -rom "codellama:13b" examples/tests.json
