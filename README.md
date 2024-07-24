@@ -54,7 +54,7 @@ echo '[2,2]' | ./uncode examples/add.json
 Use the following to use the [Code Function](examples/code.json) to write the source code for another of the examples, the [Reverse Function](examples/reverse.json)
 
 ```bash
-./uncode -d examples/reverse.json | ./uncode -ro examples/code.json
+./uncode -d examples/reverse.json | ./uncode -r examples/code.json
 ```
 
 returns
@@ -68,8 +68,11 @@ function reverseWords(s: string): string {
 Automagically generate tests for a hypothetical function.
 
 ```bash
-./uncode -d examples/reverse.json | ./uncode -rom "codellama:13b" examples/tests.json
+./uncode -d examples/reverse.json | ./uncode -rm "codellama:13b" examples/tests.json
+cat examples/isPalindrome.json | uncode examples/code.json -r | tee isPalindrome.ts | uncode examples/tests.json -r > isPalindrome_test.ts
 ```
+
+
 
 ### Warning
 
