@@ -6,6 +6,8 @@ Uncode is a command-line interface (CLI) tool that leverages a large language mo
 
 This is completely experimental and provided as-is. You should *definitely* not use this for anything important yet!!!!
 
+This can be used to quickly write and test easier tasks, but it should excel at trickier NLP tasks like summarization.
+
 ## Features
 
 - Language agnostic (presumably; I haven't tested that yet)
