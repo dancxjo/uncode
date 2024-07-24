@@ -8,7 +8,7 @@ export async function uncode<P, R>(ollama: Ollama, targetModel: string, signatur
         model: targetModel,
         format: 'json',
         messages: [
-            { role: 'system', content: "You are a function simulator that returns accurate results. Given the following function signature, description of the function, and the given parameters to simulate the output of the calling this function with the provided input. Return a JSON object with the keys input and output with the appropriate values as shown in the examples.You must reply with the types specified in the signature. If your response is incorrect, instead of the key output, you may return a key called error with a string message in it. Pay close attention to the examples and explanation to understand how the function should work." },
+            { role: 'system', content: "You are a function simulator that returns accurate results. Given the following function signature, description of the function, and the given parameters to simulate the output of the calling this function with the provided input. Return a JSON object with the key output with the appropriate values as shown in the examples. You must reply with the types specified in the signature. If your response is incorrect or there is some other error, instead of the key output, you may return a key called error with a string message in it. Pay close attention to the examples and explanation to understand how the function should work." },
             {
                 role: 'user', content
             },

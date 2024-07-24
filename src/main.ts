@@ -36,7 +36,7 @@ const cli = new Command()
             const { signature, explanation, examples } = uncodedFunction;
 
             if (verbose || declaration) {
-                const assertions = examples.map((example: { input: string, output: string }) => `assert ${JSON.stringify(example.input)} == ${JSON.stringify(example.output)}`).join('\n');
+                const assertions = examples.map((example: { input: string, output: string }) => `assert fn(${JSON.stringify(example.input)}) == ${JSON.stringify(example.output)}`).join('\n');
                 printHighlight(`/// ${explanation}\n${signature};\n${assertions}`, 'ts');
                 if (declaration) {
                     return;
@@ -62,7 +62,6 @@ const cli = new Command()
             try {
                 const input = raw ? parametersString : JSON.parse(parametersString);
                 const result: {
-                    input?: unknown,
                     output?: unknown,
                     error?: string,
                 } = await uncode(ollama, model, signature, explanation, input, examples, verbose);
