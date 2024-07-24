@@ -1,18 +1,19 @@
 # Uncode CLI
 
-Uncode is a command-line interface (CLI) tool that leverages a large language model (LLM) to simulate the results of an unwritten function. The function details are specified in a JSON file that includes the signature, explanation, and examples. This tool uses the `Ollama` library for interfacing with the LLM and the `Cliffy` library for creating the CLI.
+Uncode is a command-line interface (CLI) tool that leverages a large language model (LLM) to simulate the results of an unwritten function. The function details are specified in a JSON file that includes the signature, explanation, and examples. This tool uses the `Ollama` library for interfacing with the LLM and the `Cliffy` library for creating the CLI. You'll need to be running [Ollama](https://ollama.com/).
 
 ## Features
 
-- Specify the function to be simulated using a JSON file.
-- Choose from different LLM models.
-- Verbose mode for detailed output.
-- Print the function declaration.
-- Option to handle raw input without parsing as JSON.
-
+- Language agnostic (presumably; I haven't tested that yet)
+- Simulate calls to a hypothetical function based solely on the signature you provide and test cases
+- Can be used in command line pipelines
+- Easy to incorporate into shell scripts
+ 
 ## Installation
 
 Ensure you have [Deno](https://deno.land/) installed. You can install Deno by following the instructions on their [installation page](https://deno.land/manual/getting_started/installation).
+
+The following will build an executable.
 
 ```bash
 deno task build
