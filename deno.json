@@ -7,9 +7,9 @@
         "ollama": "npm:ollama@0.5.0"
     },
     "tasks": {
-        "dev": "deno run --allow-net --allow-read --watch src/main.ts",
-        "start": "deno run --allow-net --allow-read  src/main.ts",
-        "build": "deno compile --allow-net --allow-read --output=uncode src/main.ts"
+        "dev": "deno run --allow-net --allow-read --allow-env --watch src/main.ts",
+        "start": "deno run --allow-net --allow-read --allow-env src/main.ts",
+        "build": "deno compile --allow-net --allow-read --allow-env --output=uncode src/main.ts"
     },
     "lint": {
         "include": [

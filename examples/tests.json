@@ -1,6 +1,6 @@
 {
     "signature": "function writeTestsFor(functionDeclaration: string): string",
-    "explanation": "Generates a complete suite of jest tests for the source code for the given function declaration as described, with test functions for the examples provided. In addition to the examples provided, generate other scenarios as well. Think of edge cases that should be tested as well.",
+    "explanation": "Generates a complete suite of Deno tests for the source code for the given function declaration as described, with test functions for the examples provided. In addition to the examples provided, generate other scenarios as well. Think of edge cases that should be tested as well.",
     "examples": [
         {
             "input": "/// Adds two numbers\nfunction add(a: number, b: number): number;\nassert [1,1] == 2",

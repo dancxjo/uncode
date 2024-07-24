@@ -1,6 +1,6 @@
 {
     "signature": "function writeSourceCodeForFunction(functionDeclaration: string): string",
-    "explanation": "Generates source code for the given function declaration as described, with test functions for the examples provided.",
+    "explanation": "Generates source code for the given function declaration as described.",
     "examples": [
         {
             "input": "/// Adds two numbers\nfunction add(a: number, b: number): number;\nassert [1,1] == 2",
