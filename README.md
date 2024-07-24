@@ -51,9 +51,8 @@ echo '[2,2]' | ./uncode examples/add.json
 
 Use the following to use the [Code Function](examples/code.json) to write the source code for another of the examples, the [Reverse Function](examples/reverse.json)
 
-
 ```bash
-./uncode -d examples/reverse.json | ./uncode -r examples/code.json
+./uncode -d examples/reverse.json | ./uncode -ro examples/code.json
 ```
 
 returns
