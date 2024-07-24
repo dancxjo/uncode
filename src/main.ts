@@ -20,13 +20,13 @@ const cli = new Command()
     .name("uncode")
     .description("Use an LLM to simulate the results of an unwritten function. To specify the function, provide a JSON file with the signature, explanation, and examples.")
     .arguments("<jsonFileName:string>")
-    .option("-m, --model <model:string>", "Model to use", { default: 'llama3:instruct' })
-    .option("-u, --url <url:string>", "URL of the llama server", { default: 'http://127.0.0.1:11434' })
-    .option("-v, --verbose", "Enable verbose mode")
-    .option("-d, --declaration", "Print the function declaration")
-    .option("-r, --raw", "Do not attempt to parse the input as JSON")
+    .option("-m, --model <model:string>", "Model to use", { default: Deno.env.get('OLLAMA_MODEL') ?? 'llama3:instruct' })
+    .option("-u, --url <url:string>", "URL of the llama server", { default: Deno.env.get('OLLAMA_HOST') ?? 'http://127.0.0.1:11434' })
+    .option("-v, --verbose", "Enable verbose mode", { default: false })
+    .option("-d, --declaration", "Print the function declaration", { default: false })
+    .option("-r, --raw", "Do not attempt to parse the input as JSON", { default: false })
     .option("-o, --outputonly", "Only print the output")
-    .action(async ({ model, url, verbose = false, declaration = false, raw = false, outputonly = false }, jsonFileName) => {
+    .action(async ({ model, url, verbose, declaration, raw, outputonly }, jsonFileName) => {
         try {
             const decoder = new TextDecoder();
             const path = Deno.realPathSync(jsonFileName);
