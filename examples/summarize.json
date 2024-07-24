@@ -1,0 +1,12 @@
+{
+    "signature": "function summarize(text: string): string",
+    "explanation": "Provides a summary of the given text.",
+    "examples": [
+        {
+            "input": [
+                "Artificial intelligence refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. These machines are capable of performing tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation."
+            ],
+            "output": "AI simulates human intelligence in machines for tasks like perception, speech recognition, decision-making, and translation."
+        }
+    ]
+}

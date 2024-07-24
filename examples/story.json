@@ -1,0 +1,12 @@
+{
+    "signature": "function generateStory(prompt: string): string",
+    "explanation": "Generates a story based on the given prompt.",
+    "examples": [
+        {
+            "input": [
+                "Once upon a time in a magical forest"
+            ],
+            "output": "Once upon a time in a magical forest, there lived a young girl named Lily who had the ability to talk to animals. Every day, she would embark on adventures with her animal friends, exploring the enchanting woods and discovering hidden secrets."
+        }
+    ]
+}

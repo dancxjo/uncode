@@ -1,0 +1,20 @@
+{
+    "signature": "function translate(text: string, targetLanguage: string): string",
+    "explanation": "Translates the given text to the specified target language.",
+    "examples": [
+        {
+            "input": [
+                "Hello, how are you?",
+                "es"
+            ],
+            "output": "Hola, ¿cómo estás?"
+        },
+        {
+            "input": [
+                "Dw i'n byw mewn tŷ da iawn",
+                "en"
+            ],
+            "output": "I live in a very good house"
+        }
+    ]
+}

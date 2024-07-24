@@ -1,0 +1,17 @@
+{
+    "signature": "function extractKeywords(text: string): string[]",
+    "explanation": "Extracts the main keywords from the given text.",
+    "examples": [
+        {
+            "input": [
+                "Artificial intelligence refers to the simulation of human intelligence in machines."
+            ],
+            "output": [
+                "Artificial intelligence",
+                "simulation",
+                "human intelligence",
+                "machines"
+            ]
+        }
+    ]
+}

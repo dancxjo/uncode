@@ -1,0 +1,12 @@
+{
+    "signature": "function correctGrammar(text: string): string",
+    "explanation": "Corrects the grammar of the given text.",
+    "examples": [
+        {
+            "input": [
+                "She go to school every day."
+            ],
+            "output": "She goes to school every day."
+        }
+    ]
+}

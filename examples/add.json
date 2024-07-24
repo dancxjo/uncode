@@ -1,0 +1,13 @@
+{
+    "signature": "function add(a: number, b: number): number",
+    "explanation": "Adds two numbers",
+    "examples": [
+        {
+            "input": [
+                1,
+                1
+            ],
+            "output": 2
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "signature": "function isPrime(n: number): boolean",
+    "explanation": "Checks if a given number is a prime number.",
+    "examples": [
+        {
+            "input": [
+                7
+            ],
+            "output": true
+        },
+        {
+            "input": [
+                10
+            ],
+            "output": false
+        }
+    ]
+}

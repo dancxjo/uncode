@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "strict": true
+    },
+    "imports": {
+        "std/": "https://deno.land/std@0.224.0/",
+        "ollama": "npm:ollama@0.5.0"
+    },
+    "tasks": {
+        "dev": "deno run --allow-net --allow-read --watch src/main.ts",
+        "start": "deno run --allow-net --allow-read  src/main.ts",
+        "build": "deno compile --allow-net --allow-read --output=uncode src/main.ts"
+    },
+    "lint": {
+        "include": [
+            "src/"
+        ],
+        "rules": {
+            "tags": [
+                "recommended"
+            ]
+        }
+    },
+    "fmt": {
+        "useTabs": false,
+        "lineWidth": 80,
+        "indentWidth": 2,
+        "semiColons": true,
+        "singleQuote": true,
+        "include": [
+            "src/"
+        ]
+    }
+}

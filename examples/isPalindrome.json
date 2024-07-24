@@ -1,0 +1,24 @@
+{
+    "signature": "function isPalindrome(s: string): boolean",
+    "explanation": "Checks if a given string is a palindrome.",
+    "examples": [
+        {
+            "input": [
+                "racecar"
+            ],
+            "output": true
+        },
+        {
+            "input": [
+                "hello"
+            ],
+            "output": false
+        },
+        {
+            "input": [
+                "A man. A plan. A canal. Panama!"
+            ],
+            "output": true
+        }
+    ]
+}
