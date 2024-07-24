@@ -3,7 +3,6 @@ import { uncode } from './uncode.ts';
 import { Command } from "https://deno.land/x/cliffy@v1.0.0-rc.4/command/mod.ts";
 import { printHighlight } from "https://deno.land/x/speed_highlight_js@v1.2.6/dist/terminal.js";
 
-
 async function initLlama(targetModel = 'llama3:instruct', hostUrl: string = 'http://127.0.0.1:11434'): Promise<Ollama> {
     const ollama = new Ollama({
         host: hostUrl,
@@ -17,7 +16,6 @@ async function initLlama(targetModel = 'llama3:instruct', hostUrl: string = 'htt
     return ollama;
 }
 
-
 const cli = new Command()
     .name("uncode")
     .description("Use an LLM to simulate the results of an unwritten function. To specify the function, provide a JSON file with the signature, explanation, and examples.")
@@ -27,7 +25,8 @@ const cli = new Command()
     .option("-v, --verbose", "Enable verbose mode")
     .option("-d, --declaration", "Print the function declaration")
     .option("-r, --raw", "Do not attempt to parse the input as JSON")
-    .action(async ({ model, url, verbose = false, declaration = false, raw = false }, jsonFileName) => {
+    .option("-o, --outputonly", "Only print the output")
+    .action(async ({ model, url, verbose = false, declaration = false, raw = false, outputonly = false }, jsonFileName) => {
         try {
             const decoder = new TextDecoder();
             const path = Deno.realPathSync(jsonFileName);
@@ -62,18 +61,43 @@ const cli = new Command()
 
             try {
                 const input = raw ? parametersString : JSON.parse(parametersString);
-                const result = await uncode(ollama, model, signature, explanation, input, examples, verbose);
+                const result: {
+                    input?: unknown,
+                    output?: unknown,
+                    error?: string,
+                } = await uncode(ollama, model, signature, explanation, input, examples, verbose);
+
+                console.log(result);
+
+                const isErrored = 'error' in result;
+                const hasOutput = 'output' in result;
+
+                if (!(isErrored || hasOutput)) {
+                    throw new Error('No output or error was received from the LLM.');
+                }
+
+                if (isErrored) {
+                    throw new Error(result.error);
+                }
+
                 if (!verbose) {
                     // If we are in verbose mode, we've already streamed the results
-                    console.log(JSON.stringify(result, null, 2));
+                    if (outputonly) {
+                        console.log(result.output);
+                    } else {
+                        console.log(JSON.stringify(result, null, 2));
+                    }
                 } else {
                     // Otherwise we need a new line
                     console.log('');
+                    if (outputonly) {
+                        throw new Error('Cannot print output-only in verbose mode');
+                    }
                 }
             } catch (e) {
-                console.error(e);
+                // Rethrow parsing errors
+                throw e;
             }
-
         } catch (error) {
             console.error(error);
         }
