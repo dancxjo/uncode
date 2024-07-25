@@ -69,7 +69,13 @@ Automagically generate tests for a hypothetical function.
 
 ```bash
 ./uncode -d examples/reverse.json | ./uncode -rm "codellama:13b" examples/tests.json
-cat examples/isPalindrome.json | uncode examples/code.json -r | tee isPalindrome.ts | uncode examples/tests.json -r > isPalindrome_test.ts
+mkdir -p examples/generated/
+for file in examples/*.json; do
+    BASE=$(basename -s ".json" $file)
+    echo $BASE
+    cat $file | uncode examples/code.json -r > examples/generated/$BASE.ts
+    cat $file | uncode examples/tests.json -r > examples/generated/${BASE}_test.ts
+done
 ```
 
 

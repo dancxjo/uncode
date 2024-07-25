@@ -1,0 +1,7 @@
+import { assertEquals } from "https://deno.land/std@0.224.0/assert/mod.ts";
+
+Deno.test("add positive numbers", () => {
+	const result = writeTestsFor("
+/// Adds two numbers\nfunction add(a: number, b: number): number;\nassert [1,1] == 2");
+	assertEquals(result, "import { assertEquals } from \"https://deno.land/std@0.224.0/assert/mod.ts\";\n\nDeno.test(\"add positive numbers\", () => {\n\tconst result = add(1, 1);\n\tassertEquals(result, 2);\n});\n\nDeno.test(\"add negative numbers\", () => {\n\tconst result = add(-1, -1);\n\tassertEquals(result, -2);\n});\n\nDeno.test(\"add positive and negative numbers\", () => {\n\tconst result = add(1, -1);\n\tassertEquals(result, 0);\n});\nDeno.test(\"add zero and positive numbers\", () => {\n\tconst result = add(0, 1);\n\tassertEquals(result, 1);\n});\n\nDeno.test(\"add zero and negative numbers\", () => {\n\tconst result = add(0, -1);\n\tassertEquals(result, -1);\n});\n\nDeno.test(\"add zero and zero\", () => {\n\tconst result = add(0, 0);\n\tassertEquals(result, 0);\n});\n\nDeno.test(\"add floating points\", () => {\n\tconst result = add(1.1, 1.1);\n\tassertEquals(result, 2.2);\n});\n\nDeno.test(\"add large numbers\", () => {\n\tconst result = add(100345, 100345);\n\tassertEquals(result, 200690);\n});\n\nDeno.test(\"add large negative numbers\", () => {\n\tconst result = add(-100345, -100345);\n\tassertEquals(result, -200690);\n});\n\nDeno.test(\"add large positive and negative numbers\", () => {\n\tconst result = add(100345, -100345);\n\tassertEquals(result, 0);\n});"
+})
